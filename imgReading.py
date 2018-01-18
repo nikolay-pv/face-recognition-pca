@@ -3,12 +3,19 @@ import fnmatch
 import os
 import numpy as np
 
-from fileManipulations import get_label
 from vectorOperations import normalize
 
 
 width = 168
 height = 216
+
+
+def get_label(from_filename):
+    filename = os.path.split(from_filename)[1]
+    filename = filename.split("_")[0]
+    number = int(filename.split("0", 1)[1])
+    return number
+
 
 def read_image(from_file):
     filename = os.path.abspath(from_file)
